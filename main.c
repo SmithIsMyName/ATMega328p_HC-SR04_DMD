@@ -39,7 +39,7 @@ void WriteDisplay(_Bool RS, _Bool RW, uint8_t DB7to0) {
 	} else {
 		PORTC &= ~(1<<PC0);
 	}
-	PORTD = DB7to0;
+	PORTD = DB7to0;							// Set DB7-DB0
 	PORTC &= ~(1<<PC2);						// Trigger E thereby triggering the transfer
 }
 uint8_t HexToDisplayCode(uint8_t hex) {
