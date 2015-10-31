@@ -1,11 +1,11 @@
 /*
  *      Author: Charles Minchau (SmiteMeSmith)
- *      Program uses a ATMega328p MCU to query a HC-SR04 ultrasonic module to calculate and display the result in cm on the NewHaven display.
+ *      Program uses a ATMega328p MCU to query a HC-SR04 ultrasonic module. Then Calculates and displays the distance to a object in cm on the NewHaven display.
  *
  *      The ultrasonic module is triggered every 60 ms by setting pin PC4 (the trigger) high for 10 us. A change in state on pin PC5 (the echo)
- *      causes a interrupt which checks if PC5 is high. If it is a timer is started that increments every micro second. Once PC5 triggers a
+ *      causes a interrupt. The interrupt checks if PC5 is high. If it is a timer is started that increments every micro second. Once PC5 triggers a
  *      interrupt again and is low the result is calculated and displayed in centimeters on the NewHaven display. Distance in cm is calculated
- *      by the amount of microseconds PC5 (the echo) is high divided by 58.
+ *      by the amount of microseconds PC5 (the echo) is active high divided by 58.
  *
  *      Pin placement of ATMega328p:
  *      Port D[7-0]			NewHavenDisplay DB[7-0]
@@ -53,7 +53,7 @@ void WriteDisplay(_Bool RS, _Bool RW, uint8_t DB7to0) {
 	} else {
 		PORTC &= ~(1<<PC0);
 	}
-	PORTD = DB7to0;							// Set DB7-DB0
+	PORTD = DB7to0;
 	PORTC &= ~(1<<PC2);						// Trigger E thereby triggering the transfer
 }
 /*******************************************INPUT HEX 0 - F AND RETURNS PROPER VALUE FOR DISPLAY*******************************************/
