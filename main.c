@@ -1,5 +1,5 @@
 /*
- *      Author: Charles Minchau (SmiteMeSmith)
+ *   
  *      Program uses a ATMega328p MCU to query a HC-SR04 ultrasonic module. Then Calculates and displays the distance to a object in cm on the NewHaven display.
  *
  *      The ultrasonic module is triggered every 60 ms by setting pin PC4 (the trigger) high for 10 us. A change in state on pin PC5 (the echo)
