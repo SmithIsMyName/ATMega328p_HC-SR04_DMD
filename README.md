@@ -1,5 +1,4 @@
  ATMega328p_HC-SR04_DMD
-Author: Charles Minchau (SmiteMeSmith)
 
 Program uses a ATMega328p MCU to query a HC-SR04 ultrasonic module. Then Calculates and displays the distance to a object in cm on the NewHaven display.
  
@@ -7,8 +6,7 @@ Program uses a ATMega328p MCU to query a HC-SR04 ultrasonic module. Then Calcula
  causes a interrupt. The interrupt checks if PC5 is high. If it is a timer is started that increments every micro second. Once PC5 triggers a
  interrupt again and is low the result is calculated and displayed in centimeters on the NewHaven display. Distance in cm is calculated
  by the amount of microseconds PC5 (the echo) is active high divided by 58.
- 
- Demonstration video at: https://youtu.be/EghFXSG64JM
+
  
  Pin placement of ATMega328p:
  
